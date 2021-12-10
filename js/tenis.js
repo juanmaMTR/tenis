@@ -270,7 +270,12 @@ class Vista {
     this.canvas.ctx.moveTo(campo.anchura / 2 - 5, 0)
     this.canvas.ctx.lineTo(campo.anchura / 2 - 5, campo.altura)
     this.canvas.ctx.stroke()
-
+    /*
+    //Linea diagonal
+    this.canvas.ctx.moveTo(0,0)
+    this.canvas.ctx.lineTo(campo.anchura,campo.altura)
+    this.canvas.ctx.stroke()
+    */
     /*
     //Línea de centro
     canvas.ctx.lineWidth = 1
@@ -310,11 +315,11 @@ class Vista {
     for (let i = 0; i < 2; i++) {
       this.canvas.ctx.fillStyle = this.jugadores[i].color
       this.canvas.ctx.fillRect(
-        jugadores[i].posicion[0],
+        jugadores[i].posicion[0] - this.jugadores[i].anchura / 2,
         jugadores[i].posicion[1] - this.jugadores[i].altura / 2,
         this.jugadores[i].anchura,
         this.jugadores[i].altura)
-      this.canvas.ctx.fill()
+      this.canvas.ctx.fill() //Se hace esto para que se rellene el color del rectangulo
     }
   }
 }
